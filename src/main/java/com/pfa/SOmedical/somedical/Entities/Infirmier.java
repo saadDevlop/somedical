@@ -1,6 +1,7 @@
 package com.pfa.SOmedical.somedical.Entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,4 +18,5 @@ public class Infirmier implements Serializable{
 	private String NomInf;
 	private String mail;
 	private String mdp;
+	private List<Rendezvous> rendezvous;
 }
