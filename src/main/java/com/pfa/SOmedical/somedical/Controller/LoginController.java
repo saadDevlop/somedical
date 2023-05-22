@@ -26,7 +26,7 @@ public class LoginController {
 	}
 	@PostMapping("/login")
 	public String login(@ModelAttribute("medecin") Medecin medecin, BindingResult bindingResult, HttpServletRequest request) {
-		return "";
+		return "login";
 	}
 	
 
