@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeLeaf.org">
   <head>
   	<title>Login 08</title>
     <meta charset="utf-8">
@@ -47,21 +47,21 @@
 						<tr>
 						  <th scope="col">#</th>
 						  <th scope="col">Nom</th>
-						  <th scope="col">CIN</th>
 						  <th scope="col">Specialite</th>
+						  <th scope="col">CIN</th>
 						  <th scope="col">Mail</th>
 						  <th scope="col">Mot de Passe</th>
 						  <th scope="col">Action</th>
 						</tr>
 					  </thead>
 					  <tbody>
-						<tr>
-						  <th scope="row">1</th>
-						  <td>Oumaima EL HANKARI</td>
-						  <td>A23214</td>
-						  <td>Generaliste</td>
-						  <td>oumaima.elhankari@gmail.com</td>
-						  <td>mdo.2001</td>
+						<tr th:each="m:${ListMedecin}">
+						  <th scope="row" th:text="${m.idMedecin}"></th>
+						  <td th:text="${m.nomMed}"></td>
+						  <td th:text="${m.speciality}"></td>
+						  <td th:text="${m.CIN}"></td>
+						  <td th:text="${m.mail}"></td>
+						  <td th:text="${m.mdp}"></td>
 						  <td><button><a><img src="images/icons8-cancel-order-48.png" style="width: 30px;"></a></button>
 							<button><a><img src="images/icons8-order-completed-48.png" style="width: 30px;"></a></button>
 							<button><a><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
