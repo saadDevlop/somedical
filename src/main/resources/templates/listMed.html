@@ -62,8 +62,8 @@
 						  <td th:text="${m.CIN}"></td>
 						  <td th:text="${m.mail}"></td>
 						  <td th:text="${m.mdp}"></td>
-						  <td><button><a><img src="images/icons8-cancel-order-48.png" style="width: 30px;"></a></button>
-							<button><a><img src="images/icons8-order-completed-48.png" style="width: 30px;"></a></button>
+						  <td><button><a th:href="@{/delete_medecin(ID=${m.idMedecin},criter=${mc})}" onclick="confirmAction()"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
+							<button><a><img src="images/icons8-edit-48.png" style="width: 30px;"></a></button>
 							<button><a><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
 						</tr>
 
@@ -73,7 +73,21 @@
 				
 		</div>
 	</section>
+<script> 
+function confirmAction() {
+	  var result = confirm("Are you sure you want to proceed?");
+	  if (result) {
+	    // User clicked OK, perform the action
+	    console.log("Action confirmed!");
+	    // Add your code here to perform the desired action
+	  } else {
+	    // User clicked Cancel, do nothing or perform alternative action
+	    console.log("Action canceled!");
+	    // Add your code here for alternative action or to exit the function
+	  }
+	}
 
+</script>
 	<script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>

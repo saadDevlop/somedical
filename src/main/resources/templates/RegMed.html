@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="www.thymeleaf.org">
   <head>
   	<title>Login 08</title>
     <meta charset="utf-8">
@@ -36,19 +36,22 @@
 			  </ul>
             </div>
 		
-			<div class="row justify-content-center">
+		<div class="row justify-content-center">
+			
 				<div class="col-md-6 col-lg-5 image-with-shadow" style="border-radius: 10px;">
 					<div class="login-wrap p-4 p-md-5">
+					   <form  method="post" th:action="@{/addmed}">
 						<div align="center">
 							<span class="fa fa-user-md" style="color: #5ca0e9; font-size: 90px;"></span>
 							<h3 style="color: #5ca0e9; position: relative; ">Registrer Medecin</h3>
 						</div>
 						<br>
-						<span style="font-weight: bolder;">Nom du Medecin</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="Nom du Medecin" required>
-						<span style="font-weight: bolder;">CIN</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="CIN" required>
-						<span style="font-weight: bolder;">Specialite</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="Specialite" required>
-						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="Mail du Medecin" required>
-						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
+						
+						<span style="font-weight: bolder;">Nom du Medecin</span><span style="color: red;">*</span><input type="text" th:value="${med.nomMed}" class="form-control rounded-left" placeholder="Nom du Medecin" required>
+						<span style="font-weight: bolder;">CIN</span><span style="color: red;">*</span><input type="text" th:value="${med.speciality}" class="form-control rounded-left" placeholder="Specialite" required>
+						<span style="font-weight: bolder;">Specialite</span><span style="color: red;">*</span><input type="text" th:value="${med.CIN}" class="form-control rounded-left" placeholder="CIN" required>
+						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" th:value="${med.mail}" class="form-control rounded-left" placeholder="Mail du Medecin" required>
+						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" th:value="${med.mdp}" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
 						<span style="font-weight: bolder;">Confirmer le Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Confirmer le Mot De Passe " required><br>
 					    <div class="w-50">
 	            		<label class="checkbox-wrap checkbox-primary">J'accepte les termes et les conditions et la politique de confidentialite
@@ -62,14 +65,18 @@
 						
 
 	         
-			  
+			  </form>
 	        </div>
 			
 				
 		</div>
-	</section>
+		
+	  </div>
+    </div>
+	
+</section>
 
-	<script src="js/jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
