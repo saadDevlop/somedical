@@ -38,10 +38,7 @@ public class MedecinController {
 		return "RegMed";
 	}
 	@PostMapping("/addmed")
-	public String saveMedecin(Model model , Medecin med , BindingResult br) {
-		if(br.hasErrors()) {
-			return "RegMed";
-		}
+	public String saveMedecin(Model model , Medecin med ) {
 		mr.save(med);
 		return"redirect:/listMed";
 		
