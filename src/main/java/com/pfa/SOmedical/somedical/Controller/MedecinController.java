@@ -13,7 +13,7 @@ import com.pfa.SOmedical.somedical.DAO.MedecinRepository;
 import com.pfa.SOmedical.somedical.Entities.Medecin;
 
 import org.springframework.validation.BindingResult;
-
+//toutes les fonctions qui s'appliquent sur le medecins
 @Controller
 public class MedecinController {
 	@Autowired
