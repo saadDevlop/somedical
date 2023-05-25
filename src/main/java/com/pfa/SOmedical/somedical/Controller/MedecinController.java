@@ -40,7 +40,7 @@ public class MedecinController {
 	@PostMapping("/addmed")
 	public String saveMedecin(Model model , Medecin med ) {
 		mr.save(med);
-		return"redirect:/listMed";
+		return"redirect:/list_medecin";
 		
 	}
 
