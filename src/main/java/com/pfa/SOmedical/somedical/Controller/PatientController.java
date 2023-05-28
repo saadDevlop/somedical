@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pfa.SOmedical.somedical.DAO.PatientRepository;
 import com.pfa.SOmedical.somedical.Entities.Patient;
@@ -13,13 +14,19 @@ import com.pfa.SOmedical.somedical.Entities.Patient;
 @Controller
 public class PatientController {
 	@Autowired
-	PatientRepository mr;
+	PatientRepository pr;
 	
 	@GetMapping("/list_patient")
 	public String ListerPatient(Model model) {
-		List<Patient> patList = mr.findAll();
+		List<Patient> patList = pr.findAll();
 		model.addAttribute("ListPatient",patList);
 		return "listPat";
+	}
+
+	@GetMapping("/delete_patient")
+	public String removePatient (Model model ,@RequestParam("ID") Integer id ,@RequestParam("criter")  String mc) {
+		pr.deleteById(id);
+		return "redirect:/list_patient";
 	}
 	
 }
