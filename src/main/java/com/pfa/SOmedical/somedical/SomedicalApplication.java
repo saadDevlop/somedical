@@ -15,8 +15,8 @@ public class SomedicalApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx=	SpringApplication.run(SomedicalApplication.class, args);
 		MedecinRepository med= ctx.getBean(MedecinRepository.class);
-		med.save(new Medecin(null,"hamid Benjaloune", "dentist", "TA9834", "hamid123@gmail.com", "hamid123", null));
-		med.save(new Medecin(null,"Yasmine", "cardiologe", "GI11463", "yasmine@gmail.com", "yasmine123", null));
+		//med.save(new Medecin(null,"hamid Benjaloune", "dentist", "TA9834", "hamid123@gmail.com", "hamid123", null));
+		//med.save(new Medecin(null,"Yasmine", "cardiologe", "GI11463", "yasmine@gmail.com", "yasmine123", null));
 	}
 
 }

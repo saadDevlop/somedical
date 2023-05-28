@@ -47,21 +47,19 @@
 						<tr>
 						  <th scope="col">#</th>
 						  <th scope="col">Nom</th>
-						  <th scope="col">CIN</th>
 						  <th scope="col">Mail</th>
 						  <th scope="col">Mot de Passe</th>
 						  <th scope="col">Action</th>
 						</tr>
 					  </thead>
 					  <tbody>
-						<tr>
-						  <th scope="row">1</th>
-						  <td>youssef ben</td>
-						  <td>T23214</td>
-						  <td>youssef.ben@gmail.com</td>
-						  <td>inf.2001</td>
-						  <td><button><a><img src="images/icons8-cancel-order-48.png" style="width: 30px;"></a></button>
-							<button><a><img src="images/icons8-order-completed-48.png" style="width: 30px;"></a></button>
+						<tr th:each="i:${ListInfirmier}">
+						  <th scope="row" th:text="${i.idInfirmier}"></th>
+						  <td th:text="${i.NomInf}"></td>
+						  <td th:text="${i.mail}"></td>
+						  <td th:text="${i.mdp}"></td>
+						  <td><button><a th:href="@{/delete_infirmier(ID=${i.idInfirmier},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
+							<button><a><img src="images/icons8-edit-48.png" style="width: 30px;"></a></button>
 							<button><a><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
 						</tr>
 

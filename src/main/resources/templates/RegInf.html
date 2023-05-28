@@ -40,15 +40,15 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
+					<form  method="post" th:action="@{/addinf}" th:object="${infirmier}">
 						<div align="center">
 							<span class="fas fa-user-nurse" style="color: #5ca0e9; font-size: 90px;"></span>
 							<h3 style="color: #5ca0e9; position: relative; ">Registrer Infirmier</h3>
 						</div>
 						<br>
-						<span style="font-weight: bolder;">Nom d'Infirmier</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="Nom d'Infirmier" required>
-						<span style="font-weight: bolder;">CIN</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="CIN" required>
-						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" class="form-control rounded-left" placeholder="Mail du Medecin" required>
-						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
+						<span style="font-weight: bolder;">Nom d'Infirmier</span><span style="color: red;">*</span><input type="text" th:field="*{NomInf}" class="form-control rounded-left" placeholder="Nom d'Infirmier" required>
+						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" th:field="*{mail}" class="form-control rounded-left" placeholder="Mail du Medecin" required>
+						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" th:field="*{mdp}" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
 						<span style="font-weight: bolder;">Confirmer le Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Confirmer le Mot De Passe " required>
 						<br>
 						<div class="w-50">
@@ -62,7 +62,7 @@
 						</div>
 						
 
-	         
+	         </form>
 			  
 	        </div>
 			
