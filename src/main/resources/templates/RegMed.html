@@ -40,18 +40,18 @@
 			
 				<div class="col-md-6 col-lg-5 image-with-shadow" style="border-radius: 10px;">
 					<div class="login-wrap p-4 p-md-5">
-					   <form  method="post" th:action="@{/addmed}" th:object="${med}">
+					   <form  method="post" th:action="@{/addmed}" th:object="${medecin}">
 						<div align="center">
 							<span class="fa fa-user-md" style="color: #5ca0e9; font-size: 90px;"></span>
 							<h3 style="color: #5ca0e9; position: relative; ">Registrer Medecin</h3>
 						</div>
 						<br>
 						
-						<span style="font-weight: bolder;">Nom du Medecin</span><span style="color: red;">*</span><input type="text" th:value="${nomMed}" id="nomMed" name="nomMed" class="form-control rounded-left" placeholder="Nom du Medecin" required>
-						<span style="font-weight: bolder;">CIN</span><span style="color: red;">*</span><input type="text" th:value="${speciality}" id="speciality" name="speciality" class="form-control rounded-left" placeholder="Specialite" required>
-						<span style="font-weight: bolder;">Specialite</span><span style="color: red;">*</span><input type="text" th:value="${CIN}" id="CIN" name="CIN" class="form-control rounded-left" placeholder="CIN" required>
-						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" th:value="${mail}" id="mail" name="mail" class="form-control rounded-left" placeholder="Mail du Medecin" required>
-						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" th:value="${mdp}" id="mdp" name="mdp" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
+						<span style="font-weight: bolder;">Nom du Medecin</span><span style="color: red;">*</span><input type="text" th:field="*{nomMed}" id="nomMed" name="nomMed" class="form-control rounded-left" placeholder="Nom du Medecin" required>
+						<span style="font-weight: bolder;">CIN</span><span style="color: red;">*</span><input type="text" th:field="*{speciality}" id="speciality" name="speciality" class="form-control rounded-left" placeholder="Specialite" required>
+						<span style="font-weight: bolder;">Specialite</span><span style="color: red;">*</span><input type="text" th:field="*{CIN}" id="CIN" name="CIN" class="form-control rounded-left" placeholder="CIN" required>
+						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" th:field="*{mail}" id="mail" name="mail" class="form-control rounded-left" placeholder="Mail du Medecin" required>
+						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" th:field="*{mdp}" id="mdp" name="mdp" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
 						<span style="font-weight: bolder;">Confirmer le Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Confirmer le Mot De Passe " required><br>
 					    <div class="w-50">
 	            		<label class="checkbox-wrap checkbox-primary">J'accepte les termes et les conditions et la politique de confidentialite
