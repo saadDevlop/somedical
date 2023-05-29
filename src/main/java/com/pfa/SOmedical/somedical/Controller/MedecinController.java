@@ -54,5 +54,12 @@ public class MedecinController {
 		model.addAttribute("medecin", medecin);
 		return "UpdateMed ";
 	}
+	
+	@RequestMapping(value = { "/detailsmedecin" })
+	public String detailmedecin(Model model ,Integer id) {
+		Medecin med = imm.getMedecinById(id);
+		model.addAttribute("medecin",med);
+		return "DetailMed";
+		}
 
 }
