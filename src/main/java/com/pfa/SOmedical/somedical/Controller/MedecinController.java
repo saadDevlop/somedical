@@ -44,7 +44,7 @@ public class MedecinController {
 		return "RegMed";
 	}
 	@PostMapping("/addmed")
-	public String saveMedecin(@ModelAttribute("medecin")Medecin med ) {
+	public String saveMedecin(@ModelAttribute("medecin") Medecin med ) {
 		imm.saveMedecin(med);
 		return"redirect:/list_medecin";	
 	}

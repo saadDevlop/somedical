@@ -59,7 +59,7 @@
 						  <td th:text="${i.mail}"></td>
 						  <td th:text="${i.mdp}"></td>
 						  <td><button><a th:href="@{/delete_infirmier(ID=${i.idInfirmier},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
-							<button><a><img src="images/icons8-edit-48.png" style="width: 30px;"></a></button>
+							<button><a th:href="@{/update_infirmier(id=${i.idInfirmier})}"><img src="images/icons8-edit-48.png" style="width: 30px;"></a></button>
 							<button><a><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
 						</tr>
 
