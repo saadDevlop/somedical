@@ -2,6 +2,7 @@ package com.pfa.SOmedical.somedical.Controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pfa.SOmedical.somedical.DAO.InfirmierRepository;
 import com.pfa.SOmedical.somedical.Entities.Infirmier;
-import com.pfa.SOmedical.somedical.Entities.Medecin;
 import com.pfa.SOmedical.somedical.Metier.IInfirmierMetier;
 
 
@@ -23,6 +23,11 @@ public class InfirmierController {
 	InfirmierRepository ir;
 	@Autowired
 	IInfirmierMetier iim;
+	
+	@RequestMapping(value = { "/", "/index", "/apropos" })
+	public String index(Model model) {
+		return "index";
+	}
 	
 	@GetMapping("/list_infirmier")
 	public String ListerInfirmier(Model model) {
@@ -55,4 +60,11 @@ public class InfirmierController {
 		model.addAttribute("infirmier", infirmier);
 		return "UpdateInf";
 	}
+	
+	@RequestMapping(value = { "/detailsinfirmier" })
+	public String detailinfirmier(Model model ,Integer id) {
+		Infirmier infirmier = iim.getInfirmierById(id);
+		model.addAttribute("infirmier", infirmier);
+		return "DetailInf";
+		}
 }

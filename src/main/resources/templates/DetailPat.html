@@ -35,22 +35,22 @@
 				</li>
 			  </ul>
             </div>
-		
+		<a th:href="@{/list_patient}"> Retour a la liste des patients</a>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
-					<form  method="post" th:action="@{/addmed}" th:object="${medecin}">
+					<form  method="post" th:action="@{/addpat}" th:object="${patient}">
 						<div align="center">
 							<span class="fa fa-user-o" style="color: #5ca0e9; font-size: 90px;"></span>
-
-							<h3 style="color: #5ca0e9; position: relative; ">Detail de Medecin</h3>
-
+							<h3 style="color: #5ca0e9; position: relative; ">Detail Patient</h3>
 						</div>
 					
-							<h2  align="center" th:text="*{nomMed}"></h2><br>
+							<h2  align="center" th:text="*{NomPatient}"></h2><br>
 							<h3 align="center" th:text="*{CIN}"></h3><br>
-							<h3 align="center" th:text="*{speciality}"></h3><br>
-							<h3 align="center" th:text="*{mail}"></h3><br>
+							<h3 align="center" th:text="*{DateNaissance}"></h3><br>
+							<h3 align="center" th:text="*{Sexe}"></h3><br>
+							<h3 align="center" th:text="*{Mutuelle}"></h3><br>
+							<h3 align="center" th:text="*{Mail}"></h3><br>
 						</form>
 					</div>
 	         		

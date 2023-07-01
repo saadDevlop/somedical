@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	
 	<link rel="stylesheet" href="css/style1.css">
 
@@ -35,25 +36,28 @@
 				</li>
 			  </ul>
             </div>
-		
+		<a th:href="@{/index}"> Retour a la page d'accuil</a>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
-					<form  method="post" th:action="@{/addmed}" th:object="${medecin}">
+					<form  method="post" th:action="@{/addord}" th:object="${ordonnance}">
 						<div align="center">
-							<span class="fa fa-user-o" style="color: #5ca0e9; font-size: 90px;"></span>
-
-							<h3 style="color: #5ca0e9; position: relative; ">Detail de Medecin</h3>
-
+							<span class="fa-solid fa-note-medical" style="color: #5ca0e9; font-size: 90px;"></span>
+							<h3 style="color: #5ca0e9; position: relative; ">Ajouter une ordonnance</h3>
 						</div>
-					
-							<h2  align="center" th:text="*{nomMed}"></h2><br>
-							<h3 align="center" th:text="*{CIN}"></h3><br>
-							<h3 align="center" th:text="*{speciality}"></h3><br>
-							<h3 align="center" th:text="*{mail}"></h3><br>
-						</form>
-					</div>
-	         		
+						<br>
+						<span style="font-weight: bolder;">Date</span><span style="color: red;">*</span><input type="text" th:field="*{DateOrd}" class="form-control rounded-left" placeholder="Date du jour" required>
+						<span style="font-weight: bolder;">Medicaments</span><span style="color: red;">*</span>
+						<select name="medicament">
+						<option th:each="a:${listM}" th:text="${a.NomMedicament}"th:value="${a.idMedicament}">
+						</option></select>
+						
+						<br>
+							<button type="submit" class="btn-primary rounded submit p-3 px-5" style="font-weight: bold;">Register</button>
+						</div>
+						
+
+	         </form>
 			  
 	        </div>
 			

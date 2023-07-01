@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
+	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	
 	<link rel="stylesheet" href="css/style1.css">
 
@@ -35,27 +36,34 @@
 				</li>
 			  </ul>
             </div>
-		
+		<a th:href="@{/index}"> Retour a la page d'accuil</a>
 			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-5">
-					<div class="login-wrap p-4 p-md-5">
-					<form  method="post" th:action="@{/addmed}" th:object="${medecin}">
-						<div align="center">
-							<span class="fa fa-user-o" style="color: #5ca0e9; font-size: 90px;"></span>
+				<div align="center">
+					<span class="fa-solid fa-note-medical" style="color: #5ca0e9; font-size: 90px;"></span>
+					<h3 style="color: #5ca0e9; position: relative; ">Liste des Ordonnances</h3>
+				</div>
+				<table class="table  table-striped">
+					<thead>
+						<tr>
+						  <th scope="col">#</th>
+						  <th scope="col">Date</th>
+						  <th scope="col">Patient</th>
+						 <!-- <th scope="col">Medicaments</th>-->
+						  <th scope="col">Action</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr th:each="i:${ListOrdonnance}">
+						  <th scope="row" th:text="${i.idOrd}"></th>
+						  <td th:text="${i.DateOrd}"></td>
+						  <td th:text="${i.patient}"></td>
+						  <!--<td th:text="${i.medicaments}"></td>-->
+						  <td><button><a th:href="@{/delete_ordonnance(ID=${i.idOrd},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
+							<button><a th:href="@{/detailsordonnance(id=${i.idOrd})}" ><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
+						</tr>
 
-							<h3 style="color: #5ca0e9; position: relative; ">Detail de Medecin</h3>
-
-						</div>
-					
-							<h2  align="center" th:text="*{nomMed}"></h2><br>
-							<h3 align="center" th:text="*{CIN}"></h3><br>
-							<h3 align="center" th:text="*{speciality}"></h3><br>
-							<h3 align="center" th:text="*{mail}"></h3><br>
-						</form>
-					</div>
-	         		
-			  
-	        </div>
+					  </tbody>
+				  </table>
 			
 				
 		</div>

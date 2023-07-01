@@ -1,5 +1,6 @@
 package com.pfa.SOmedical.somedical.metierImp;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,17 @@ public class IInfirmierMetierImp implements IInfirmierMetier{
 	@Override
 	public void saveInfirmier(Infirmier inf) {
 		this.infirmierRepository.save(inf);
+		
+	}
+
+	@Override
+	public List<Infirmier> listeInfirmier() {
+		return infirmierRepository.findAll();
+	}
+
+	@Override
+	public void deleteInfirmier(Integer id) {
+		this.infirmierRepository.deleteById(id);
 		
 	}
 

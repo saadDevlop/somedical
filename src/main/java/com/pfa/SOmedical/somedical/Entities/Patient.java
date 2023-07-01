@@ -30,7 +30,7 @@ public class Patient implements Serializable{
     private String Sexe;
     @OneToMany(mappedBy="patient",fetch=FetchType.LAZY)
     private List<Consultation> Consultations;
-     @OneToOne(mappedBy = "patient")
+    @OneToOne(mappedBy = "patient")
     private DossierMedical dossierMedical;
     @OneToMany(mappedBy="patient",fetch=FetchType.LAZY)
     private List<Ordonnance> ordonnances;

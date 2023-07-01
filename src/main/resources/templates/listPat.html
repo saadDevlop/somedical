@@ -36,7 +36,7 @@
 				</li>
 			  </ul>
             </div>
-		
+		<a th:href="@{/index}"> Retour a la page d'accuil</a>
 			<div class="row justify-content-center">
 				<div align="center">
 					<span class="fa fa-user-injured" style="color: #5ca0e9; font-size: 90px;"></span>
@@ -65,13 +65,12 @@
 						  <td th:text="${p.Mail}"></td>
 						  <td th:text="${p.sexe}"></td>
 						  <td><button><a th:href="@{/delete_patient(ID=${p.idPatient},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
-							<button><a><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
+							<button><a th:href="@{/detailspatient(id=${p.idPatient})}"><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
 						</tr>
 
 					  </tbody>
 				  </table>
 			
-				
 		</div>
 	</section>
 
