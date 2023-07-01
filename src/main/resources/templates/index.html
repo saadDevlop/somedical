@@ -12,9 +12,9 @@
 <body>
 
 
-	<nav id="sidebar" th:fragment="sidebar">
+	<nav id="sidebar" th:fragment="sidebar" style="align-items: center;">
 
-		<div class="custom-menu">
+		<div class="custom-menu" >
 			<button type="button" id="sidebarCollapse" class="btn btn-primary">
 				<i class="fa fa-bars"></i> <span class="sr-only">Toggle Menu</span>
 			</button>
@@ -28,7 +28,7 @@
 
 			<ul class="list-unstyled components mb-5">
 				
-				<li><a th:href="@{/index}"><span class="fa fa-user mr-3"></span>A propos</a></li>
+				<li><a th:href="@{/index}"><span class="fa fa-user mr-3"></span><b>A propos</b></a></li>
 				
 				<li class="active"><a href="#rdpSubmenu" data-toggle="collapse"
 				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Patients</a>
@@ -58,8 +58,6 @@
 					<li><a th:href="@{/index}">Rendez-vous a accepter</a></li>
 				</ul></li>
 
-
-				
 			</ul>
 
 		</div>
