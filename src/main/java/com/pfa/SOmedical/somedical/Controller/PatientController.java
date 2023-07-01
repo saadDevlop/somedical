@@ -6,15 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.pfa.SOmedical.somedical.DAO.PatientRepository;
 import com.pfa.SOmedical.somedical.Entities.Patient;
+import com.pfa.SOmedical.somedical.Metier.IPatientMetier;
 
 @Controller
 public class PatientController {
 	@Autowired
 	PatientRepository pr;
+	
+	@Autowired
+	IPatientMetier ipm;
 	
 	@GetMapping("/list_patient")
 	public String ListerPatient(Model model) {
@@ -22,11 +28,32 @@ public class PatientController {
 		model.addAttribute("ListPatient",patList);
 		return "listPat";
 	}
+	
+	@GetMapping("/registre_patient")
+	public String ajouterPatient(Model model) {
+		Patient patient = new Patient();
+		model.addAttribute("patient" ,patient);
+		return "RegPat";
+	}
+	
+	@PostMapping("/addpat")
+	public String savePatient(@ModelAttribute("patient") Patient pat) {
+		ipm.savePatent(pat);
+		return "redirect:/list_patient";
+	}
+	
 
 	@GetMapping("/delete_patient")
 	public String removePatient (Model model ,@RequestParam("ID") Integer id ,@RequestParam("criter")  String mc) {
 		pr.deleteById(id);
-		return "redirect:/list_patient";
+		return "redirect:/list_patient?criter="+mc;
 	}
+	
+	@RequestMapping(value = { "/detailspatient" })
+	public String detailpatient(Model model ,Integer id) {
+		Patient patient = ipm.getPatientById(id);
+		model.addAttribute("patient", patient);
+		return "DetailPat";
+		}
 	
 }

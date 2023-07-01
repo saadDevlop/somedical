@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../static/css/style10.css"
+	th:href="@{css/style10.css}" />
+	
+</head>
+<body>
+
+
+	<nav id="sidebar" th:fragment="sidebar">
+
+		<div class="custom-menu">
+			<button type="button" id="sidebarCollapse" class="btn btn-primary">
+				<i class="fa fa-bars"></i> <span class="sr-only">Toggle Menu</span>
+			</button>
+		</div>
+
+		<div class="p-4">
+			<a th:href="@{/index}"><img alt="SO" src="images/a.png"
+				class="img-fluid"
+				style="width: 80%; display: block; margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" /></a>
+			
+
+			<ul class="list-unstyled components mb-5">
+				
+				<li><a th:href="@{/index}"><span class="fa fa-user mr-3"></span>A propos</a></li>
+				
+				<li class="active"><a href="#rdpSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Patients</a>
+				<ul class="collapse list-unstyled" id="rdpSubmenu">
+					<li><a th:href="@{/list_patient}">Liste des Patients </a></li>
+					<li><a th:href="@{/registre_patient}">Ajouter un Patient</a></li>
+				</ul></li>
+				
+				<li class="active"><a href="#listArticleSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Ordonnances</a>
+				<ul class="collapse list-unstyled" id="listArticleSubmenu">
+					<li><a th:href="@{/list_ordonnance}">Liste des Ordonnances </a></li>
+					<li><a th:href="@{/registre_ordonnance}">Ajouter une Ordonnance</a></li>
+				</ul></li>
+				
+				<li class="active"><a href="#bdvSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Infirmiers</a>
+				<ul class="collapse list-unstyled" id="bdvSubmenu">
+					<li><a th:href="@{/list_infirmier}">Liste des Infirmier</a></li>
+					<li><a th:href="@{/registre_infirmier}">Ajouter un Infirmier</a></li>
+				</ul></li>
+				
+				<li class="active"><a href="#aavSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Rendez-Vous</a>
+				<ul class="collapse list-unstyled" id="aavSubmenu">
+					<li><a th:href="@{/index}">Liste des Rendez-vous</a></li>
+					<li><a th:href="@{/index}">Rendez-vous a accepter</a></li>
+				</ul></li>
+
+
+				
+			</ul>
+
+		</div>
+
+	</nav>
+
+	</body>
+	
+</html>

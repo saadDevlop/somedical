@@ -8,7 +8,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	
 	<link rel="stylesheet" href="css/style1.css">
 
@@ -36,33 +35,22 @@
 				</li>
 			  </ul>
             </div>
-		<a th:href="@{/index}"> Retour a la page d'accuil</a>
+		<a th:href="@{/list_infirmier}"> Retour a la liste des infirmiers</a>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
 					<form  method="post" th:action="@{/addinf}" th:object="${infirmier}">
 						<div align="center">
-							<span class="fas fa-user-nurse" style="color: #5ca0e9; font-size: 90px;"></span>
-							<h3 style="color: #5ca0e9; position: relative; ">Registrer Infirmier</h3>
+							<span class="fa fa-user-o" style="color: #5ca0e9; font-size: 90px;"></span>
+							<h3 style="color: #5ca0e9; position: relative; ">Detail Infirmier</h3>
 						</div>
-						<br>
-						<span style="font-weight: bolder;">Nom d'Infirmier</span><span style="color: red;">*</span><input type="text" th:field="*{NomInf}" class="form-control rounded-left" placeholder="Nom d'Infirmier" required>
-						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" th:field="*{mail}" class="form-control rounded-left" placeholder="Mail du Medecin" required>
-						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" th:field="*{mdp}" class="form-control rounded-left" placeholder="Mot de Passe du Medecin" required>
-						<span style="font-weight: bolder;">Confirmer le Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Confirmer le Mot De Passe " required>
-						<br>
-						<div class="w-50">
-							<label class="checkbox-wrap checkbox-primary">J'accepte les termes et les conditions et la politique de confidentialite
-										  <input type="checkbox"  required>
-										  <span class="checkmark"></span>
-										</label>
-									</div>
-						<div class="form-group">
-							<button type="submit" class="btn-primary rounded submit p-3 px-5" style="font-weight: bold;">Register</button>
-						</div>
-						
-
-	         </form>
+					
+							<h2  align="center" th:text="*{NomInf}"></h2><br>
+							<h3 align="center" th:text="*{idInfirmier}"></h3><br>
+							<h3 align="center" th:text="*{mail}"></h3><br>
+						</form>
+					</div>
+	         		
 			  
 	        </div>
 			
