@@ -17,5 +17,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer>{
 	public List<Patient> listPatByName(@Param("nomPat") List<String> nom);
 	//@Query(value = "select p from Patient p where CIN IN (:cinPat)")
 	//public List<Patient> listPatByCin(@Param("cinPat") List<String> cin);
+	@Query("SELECT p FROM Patient p WHERE p.Mail = ?1")
+	 public Patient findByEmail(String email);
 
 }
