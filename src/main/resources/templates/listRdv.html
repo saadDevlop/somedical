@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Login 08</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	
+	<link rel="stylesheet" href="css/style1.css">
+
+	</head>
+	<body>
+
+	<section class="ftco-section">
+		
+		<div class="container">
+			<div id="navig">
+					
+			<ul class="nav justify-content-end">
+				<img src="images/a.png" alt="My Image" id="logo"> 
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#" style="font-size: large; font-weight: bold;">Nos Sites</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#" style="font-size: large; font-weight: bold;">Nos Evenements</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#" style="font-size: large; font-weight: bold;">Nos Specialites</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#" style="font-size: large; font-weight: bold;">Nos Offres</a>
+				</li>
+			  </ul>
+            </div>
+		<a th:href="@{/index}"> Retour a la page d'accuil</a>
+			<div class="row justify-content-center">
+				<div align="center">
+					<span class="fas fa-calendar-alt" style="color: #5ca0e9; font-size: 90px;"></span>
+					<h3 style="color: #5ca0e9; position: relative; ">Liste des Rendez Vous</h3>
+				</div>
+				<table class="table  table-striped">
+					<thead>
+						<tr>
+						  <th scope="col">#</th>
+						  <th scope="col">Date du rendez-vous</th>
+						  <th scope="col">Patient</th>
+						  <th scope="col">Type Maladie</th>
+						  <th scope="col">Etat</th>
+						  <th scope="col">Action</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr th:each="i:${ListRendezvous}">
+						  <th scope="row" th:text="${i.idRen}"></th>
+						  <td th:text="${i.DateRenderVous}"></td>
+						  <td th:text="${i.patient}"></td>
+						  <td th:text="${i.TypeMaladie}"></td>
+						  <td th:text="${i.Description}"></td>
+						  <td><button><a th:href="@{/delete_rendezvous(ID=${i.idRen},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
+							<button><a th:href="@{/update_rendezvous(id=${i.idRen})}"><img src="images/icons8-edit-48.png" style="width: 30px;"></a></button>
+							<button><a th:href="@{/confirmer_rendezvous(ID=${i.idRen},criter=${mc})}" ><img src="images/icons8-calendar-past-event-and-appointment-agenda-completed-24.png" style="width: 30px;"></a></button></td>
+						</tr>
+
+					  </tbody>
+				  </table>
+			
+				
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+
