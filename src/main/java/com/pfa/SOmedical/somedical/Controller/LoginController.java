@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,6 +76,25 @@ public class LoginController {
 	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	    }
 	}
+	
+	@GetMapping("/{email}")
+	public ResponseEntity<Patient> getPatientByEmail(@PathVariable("email") String email) {
+	    // Retrieve the patient from the database using the email
+	    Patient patient = pr.findByEmail(email);
+
+	    // Check if the patient exists
+	    if (patient != null) {
+	        return ResponseEntity.ok(patient);
+	    } else {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+	    }
+	}
+
+	
+	
+	
+
+
 
   
   private String generateToken(String patname) {

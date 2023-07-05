@@ -18,5 +18,6 @@ public interface MedecinRepository extends JpaRepository<Medecin, Integer>{
 	
 	//@Query(value = "select a from Medecin a where a.nom like '%' || :x || '%'")
 	//public List<Medecin> chercher(@Param("x") String mc);
-
+	@Query("SELECT m FROM Medecin m WHERE m.mail = ?1")
+    public Medecin findMedByMail(String email);
 }

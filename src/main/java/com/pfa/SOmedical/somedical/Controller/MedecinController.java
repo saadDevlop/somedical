@@ -8,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pfa.SOmedical.somedical.DAO.MedecinRepository;
 import com.pfa.SOmedical.somedical.Entities.Medecin;
 import com.pfa.SOmedical.somedical.Metier.IMedecinMetier;
+import com.pfa.SOmedical.somedical.metierImp.IMedecinMetierImp;
 
 import org.springframework.validation.BindingResult;
 //toutes les fonctions qui s'appliquent sur le medecins
@@ -24,6 +26,8 @@ public class MedecinController {
 	
 	@Autowired
 	IMedecinMetier imm;
+	@Autowired
+	IMedecinMetierImp immi;
 	
 	@GetMapping("/list_medecin")
 	public String ListerMedecin(Model model) {
@@ -61,5 +65,26 @@ public class MedecinController {
 		model.addAttribute("medecin",med);
 		return "DetailMed";
 		}
+	
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login";
+    }
 
+	 @PostMapping("/login")
+	    public String login(@RequestBody @ModelAttribute("medecin") Medecin loginForm, Model model) {
+	        String mail = loginForm.getMail();
+	        String password = loginForm.getMdp();
+	        System.out.println(mail);
+	        System.out.println(password);
+
+	        if (immi.validateCredentials(mail, password)) {
+	            // Authentication successful, proceed with further logic
+	            return "redirect:/index";
+	        } else {
+	            // Authentication failed, display error message
+	            model.addAttribute("error", "Invalid username or password");
+	            return "login";
+	        }
+	    }
 }

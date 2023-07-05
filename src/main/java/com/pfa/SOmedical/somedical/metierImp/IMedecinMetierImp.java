@@ -49,8 +49,15 @@ public class IMedecinMetierImp implements IMedecinMetier{
 		this.medecinRepository.deleteById(id);
 		
 	}
-
 	
+    public Medecin findByMail(String email) {
+        return medecinRepository.findMedByMail(email);
+    }
+
+    public boolean validateCredentials(String email, String password) {
+        Medecin user = medecinRepository.findMedByMail(email);
+        return user != null && user.getMdp().equals(password);
+    }
 
 	//@Override
 	//public List<Medecin> chercher(String mc) {

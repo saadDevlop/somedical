@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
   	<title>SOMedical - Get your health now </title>
   	<link rel="icon" href="images/a.png" type="image/png">
@@ -47,12 +47,12 @@
 		      	</div>
 				<br>
 				<h3 style="color: #5ca0e9; position: relative; right :-160px;">LOGIN</h3>
-						<form action="#"  class="login-form">
+						<form th:action="@{/login}"  class="login-form" method="post" enctype="application/x-www-form-urlencoded" th:object="${medecin}">
 		      		<div class="form-group">
-		      			<input type="text"  class="form-control rounded-left" placeholder="Email" required>
+		      			<input type="text"  class="form-control rounded-left" placeholder="Email" name="mail" id="email" required>
 		      		</div>
 	            <div class="form-group d-flex">
-	              <input type="password" class="form-control rounded-left" placeholder="Password" required>
+	              <input type="password" class="form-control rounded-left" name="mdp" placeholder="Password" id="password" required>
 	            </div>
 	            <div class="form-group d-md-flex">
 	            	<div class="w-50">
@@ -67,8 +67,11 @@
 	            </div>
 	            <div class="form-group">
 	            	<button type="submit" class="btn-primary rounded submit p-3 px-5" style="font-weight: bold;">Login</button>
+		        </div>
+	            <div th:if="${error}" style="color: red">
+	            	<span th:text="${error}"></span>
 	            </div>
-
+	            <br>
 
 	          </form>
 			  
