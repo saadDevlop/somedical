@@ -33,40 +33,43 @@
 		<div class="p-4">
 			<a th:href="@{/index}"><img alt="SO" src="images/a.png"
 				class="img-fluid"
-				style="width: 80%; display: block; margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" /></a>
+				style="width: 60%; display: block; margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 20px;" /></a>
 			
 
 			<ul class="list-unstyled components mb-5">
 				
-				<li><a th:href="@{/index}"><span class="fa fa-user mr-3"></span><b>A propos</b></a></li>
-				
-				<li class="active"><a href="#rdpSubmenu" data-toggle="collapse"
-				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Patients</a>
+				<li class="active"><a style="text-decoration: none;" href="#rdpSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-user-circle"></span>&nbsp;&nbsp;&nbsp;Patients</a>
 				<ul class="collapse list-unstyled" id="rdpSubmenu">
-					<li><a th:href="@{/list_patient}">Liste des Patients </a></li>
-					<li><a th:href="@{/registre_patient}">Ajouter un Patient</a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/list_patient}">Liste des Patients </a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/registre_patient}">Ajouter un Patient</a></li>
 				</ul></li>
 				
-				<li class="active"><a href="#listArticleSubmenu" data-toggle="collapse"
-				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Ordonnances</a>
+				<li class="active"><a style="text-decoration: none;" href="#listArticleSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-file"></span>&nbsp;&nbsp;&nbsp;Ordonnances</a>
 				<ul class="collapse list-unstyled" id="listArticleSubmenu">
-					<li><a th:href="@{/list_ordonnance}">Liste des Ordonnances </a></li>
-					<li><a th:href="@{/registre_ordonnance}">Ajouter une Ordonnance</a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/list_ordonnance}">Liste des Ordonnances </a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/registre_ordonnance}">Ajouter une Ordonnance</a></li>
 				</ul></li>
 				
-				<li class="active"><a href="#bdvSubmenu" data-toggle="collapse"
-				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Infirmiers</a>
+				<li class="active"><a style="text-decoration: none;" href="#bdvSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-user-md"></span>&nbsp;&nbsp;&nbsp;Infirmiers</a>
 				<ul class="collapse list-unstyled" id="bdvSubmenu">
-					<li><a th:href="@{/list_infirmier}">Liste des Infirmier</a></li>
-					<li><a th:href="@{/registre_infirmier}">Ajouter un Infirmier</a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/list_infirmier}">Liste des Infirmier</a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/registre_infirmier}">Ajouter un Infirmier</a></li>
 				</ul></li>
 				
-				<li class="active"><a href="#aavSubmenu" data-toggle="collapse"
-				aria-expanded="false"><span class="fa fa-align-left mr-3"></span>Rendez-Vous</a>
+				<li class="active"><a style="text-decoration: none;" href="#aavSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-calendar-plus-o"></span>&nbsp;&nbsp;&nbsp;Rendez-Vous</a>
 				<ul class="collapse list-unstyled" id="aavSubmenu">
-					<li><a th:href="@{/index}">Liste des Rendez-vous</a></li>
-					<li><a th:href="@{/index}">Rendez-vous a accepter</a></li>
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/list_rendezvous}">Liste des Rendez-vous</a></li>
 				</ul></li>
+				<li class="active"><a style="text-decoration: none;" href="#vaavSubmenu" data-toggle="collapse"
+				aria-expanded="false"><span class="fa fa-cog"></span>&nbsp;&nbsp;&nbsp;Parametre </a>
+				<ul class="collapse list-unstyled" id="vaavSubmenu">
+					<li><a style="text-decoration: none;font-weight: bold;" th:href="@{/login}">Deconnexion</a></li>
+				</ul></li>
+				
 
 			</ul>
 

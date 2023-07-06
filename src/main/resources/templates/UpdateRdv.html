@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-	
+
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	
@@ -36,34 +36,30 @@
 				</li>
 			  </ul>
             </div>
-		<a th:href="@{/index}"> Retour a la page d'accuil</a>
+		
 			<div class="row justify-content-center">
-				<div align="center">
-					<span class="fas fa-file-medical" style="color: #5ca0e9; font-size: 90px;"></span>
-					<h3 style="color: #5ca0e9; position: relative; ">Liste des Ordonnances</h3>
-				</div>
-				<table class="table  table-striped">
-					<thead>
-						<tr>
-						  <th scope="col">#</th>
-						  <th scope="col">Date</th>
-						  <th scope="col">Patient</th>
-						 <!-- <th scope="col">Medicaments</th>-->
-						  <th scope="col">Action</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						<tr th:each="i:${ListOrdonnance}">
-						  <th scope="row" th:text="${i.idOrd}"></th>
-						  <td th:text="${i.DateOrd}"></td>
-						  <td th:text="${i.patient.NomPatient}"></td>
-						  <!--<td th:text="${i.medicaments}"></td>-->
-						  <td><button><a th:href="@{/delete_ordonnance(ID=${i.idOrd},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
-							<button><a th:href="@{/detailsordonnance(id=${i.idOrd})}" ><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>
-						</tr>
+				<div class="col-md-6 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+					<form  method="post" th:action="@{/addrdv}" th:object="${Rendezvous}">
+						<div align="center">
+							<span class="fas fa-user-nurse" style="color: #5ca0e9; font-size: 90px;"></span>
+							<h3 style="color: #5ca0e9; position: relative; ">Registrer Infirmier</h3>
+						</div>
+						<br>
+						<input type="hidden" th:field="*{idRen}" />
+						<span style="font-weight: bolder;">Date RenderVous</span><span style="color: red;">*</span><input type="text" th:field="*{DateRenderVous}" class="form-control rounded-left" placeholder="DateRenderVous" required>
+						<span style="font-weight: bolder;">Type Maladie</span><span style="color: red;">*</span><input type="text" th:field="*{TypeMaladie}" class="form-control rounded-left" placeholder="TypeMaladie" required>
+						
+						<br>
+						
+						<div class="form-group">
+							<button type="submit" class="btn-primary rounded submit p-3 px-5" style="font-weight: bold;">Register</button>
+						</div>
+						
 
-					  </tbody>
-				  </table>
+	         </form>
+			  
+	        </div>
 			
 				
 		</div>

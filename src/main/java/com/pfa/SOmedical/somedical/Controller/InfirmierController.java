@@ -24,8 +24,12 @@ public class InfirmierController {
 	@Autowired
 	IInfirmierMetier iim;
 	
-	@RequestMapping(value = { "/", "/index", "/apropos" })
-	public String index(Model model) {
+	@RequestMapping(value = { "/", "/login", "/apropos" })
+	public String login(Model model) {
+		return "login";
+	}
+	@RequestMapping(value = { "/index"})
+	public String Index(Model model) {
 		return "index";
 	}
 	

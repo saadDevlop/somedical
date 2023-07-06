@@ -48,7 +48,6 @@
 						  <th scope="col">#</th>
 						  <th scope="col">Nom</th>
 						  <th scope="col">Mail</th>
-						  <th scope="col">Mot de Passe</th>
 						  <th scope="col">Action</th>
 						</tr>
 					  </thead>
@@ -56,8 +55,7 @@
 						<tr th:each="i:${ListInfirmier}">
 						  <th scope="row" th:text="${i.idInfirmier}"></th>
 						  <td th:text="${i.NomInf}"></td>
-						  <td th:text="${i.mail}"></td>
-						  <td th:text="${i.mdp}"></td>
+						  <td th:text="${i.mail}"></td>	  
 						  <td><button><a th:href="@{/delete_infirmier(ID=${i.idInfirmier},criter=${mc})}"><img src="images/icons8-delete-48.png" style="width: 30px;"></a></button>
 							<button><a th:href="@{/update_infirmier(id=${i.idInfirmier})}"><img src="images/icons8-edit-48.png" style="width: 30px;"></a></button>
 							<button><a th:href="@{/detailsinfirmier(id=${i.idInfirmier})}" ><img src="images/icons8-folder.gif" style="width: 30px;"></a></button></td>

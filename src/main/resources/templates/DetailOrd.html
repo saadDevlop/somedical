@@ -35,7 +35,7 @@
 				</li>
 			  </ul>
             </div>
-		<a th:href="@{/list_patient}"> Retour a la liste des patients</a>
+		<a th:href="@{/list_ordonnance}"> Retour a la liste des ordonnances</a>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
@@ -47,8 +47,8 @@
 					
 							<h2 align="center" th:text="*{idOrd}"></h2><br>
 							<h3 align="center" th:text="*{DateOrd}"></h3><br>
-							<h3 align="center" th:text="*{patient}"></h3><br>
-							<h3 align="center" th:text="*{medecin}"></h3><br>
+							<h3 align="center" th:text="*{patient.NomPatient}"></h3><br>
+							
 							
 						</form>
 					</div>

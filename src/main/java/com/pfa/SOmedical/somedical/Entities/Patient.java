@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class Patient implements Serializable{
     private Integer idPatient;
     private String CIN;
     private String Mutuelle;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date DateNaissance;
     private String NomPatient;
     private String Mail;

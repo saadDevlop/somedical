@@ -42,15 +42,21 @@
 					<div class="login-wrap p-4 p-md-5">
 					<form  method="post" th:action="@{/addord}" th:object="${ordonnance}">
 						<div align="center">
-							<span class="fa-solid fa-note-medical" style="color: #5ca0e9; font-size: 90px;"></span>
+							<span class="fas fa-file-medical" style="color: #5ca0e9; font-size: 90px;"></span>
 							<h3 style="color: #5ca0e9; position: relative; ">Ajouter une ordonnance</h3>
 						</div>
 						<br>
-						<span style="font-weight: bolder;">Date</span><span style="color: red;">*</span><input type="text" th:field="*{DateOrd}" class="form-control rounded-left" placeholder="Date du jour" required>
-						<span style="font-weight: bolder;">Medicaments</span><span style="color: red;">*</span>
-						<select name="medicament">
-						<option th:each="a:${listM}" th:text="${a.NomMedicament}"th:value="${a.idMedicament}">
-						</option></select>
+						<span style="font-weight: bolder;">Date</span><span style="color: red;">*</span><input type="date" th:field="*{DateOrd}" class="form-control rounded-left" placeholder="Date du jour" required>
+						<span style="font-weight: bolder;">Medicaments</span><span style="color: red;">*</span><br>
+						<select name="medicament" class="form-control">
+						  <option th:each="a:${listM}" th:text="${a.NomMedicament}" th:value="${a.idMedicament}"></option>
+						</select>
+						
+						 <span style="font-weight: bolder;">Patient</span><span style="color: red;">*</span><br>
+						<select name="patient" class="form-control">
+						  <option th:each="p:${listP}" th:text="${p.NomPatient}" th:value="${p.idPatient}"></option>
+						</select>
+
 						
 						<br>
 							<button type="submit" class="btn-primary rounded submit p-3 px-5" style="font-weight: bold;">Register</button>

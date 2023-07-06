@@ -49,8 +49,21 @@
 						<span style="font-weight: bolder;">Nom du patient</span><span style="color: red;">*</span><input type="text" th:field="*{NomPatient}" class="form-control rounded-left" placeholder="Nom du patient" required>
 						<span style="font-weight: bolder;">CIN</span><span style="color: red;">*</span><input type="text" th:field="*{CIN}" class="form-control rounded-left" placeholder="CIN du patient" required>
 						<span style="font-weight: bolder;">Mutuelle</span><span style="color: red;">*</span><input type="text" th:field="*{Mutuelle}" class="form-control rounded-left" placeholder="Mutuelle du patient" required>
-						<span style="font-weight: bolder;">Date Naissance</span><span style="color: red;">*</span><input type="text" th:field="*{DateNaissance}" class="form-control rounded-left" placeholder="DateNaissance du patient" required>
-						<span style="font-weight: bolder;">Sexe</span><span style="color: red;">*</span><input type="text" th:field="*{Sexe}" class="form-control rounded-left" placeholder="Sexe du patient" required>
+						<span style="font-weight: bolder;">Date Naissance</span><span style="color: red;">*</span><input type="date" th:field="*{DateNaissance}" class="form-control rounded-left" placeholder="DateNaissance du patient" required>
+			       
+			        
+					        <span style="font-weight: bolder;">Sexe</span><span style="color: red;">*</span><br>
+							<label>
+							  <input type="radio" name="sexe" value="homme" th:field="*{Sexe}" checked> Homme
+							  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							
+							<label>
+							  <input type="radio" name="sexe" value="femme" th:field="*{Sexe}"> Femme
+							</label><br>
+			        
+						
+						<!--  <span style="font-weight: bolder;">Sexe</span><span style="color: red;">*</span><input type="text" th:field="*{Sexe}" class="form-control rounded-left" placeholder="Sexe du patient" required>-->
 						<span style="font-weight: bolder;">Mail</span><span style="color: red;">*</span><input type="text" th:field="*{Mail}" class="form-control rounded-left" placeholder="Mail du patient" required>
 						<span style="font-weight: bolder;">Mot de Passe</span><span style="color: red;">*</span><input type="password" th:field="*{MDP}" class="form-control rounded-left" placeholder="Mot de Passe du patient" required>
 						<span style="font-weight: bolder;">Confirmer le Mot de Passe</span><span style="color: red;">*</span><input type="password" class="form-control rounded-left" placeholder="Confirmer le Mot De Passe " required>

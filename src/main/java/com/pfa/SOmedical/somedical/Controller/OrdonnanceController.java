@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pfa.SOmedical.somedical.DAO.OrdonnanceRepository;
-import com.pfa.SOmedical.somedical.Entities.Infirmier;
 import com.pfa.SOmedical.somedical.Entities.Medicament;
 import com.pfa.SOmedical.somedical.Entities.Ordonnance;
 import com.pfa.SOmedical.somedical.Entities.Patient;
 import com.pfa.SOmedical.somedical.Metier.IMedicamentMetier;
 import com.pfa.SOmedical.somedical.Metier.IOrdonnanceMetier;
 import com.pfa.SOmedical.somedical.Metier.IPatientMetier;
+
 
 @Controller
 public class OrdonnanceController {
@@ -29,6 +30,8 @@ public class OrdonnanceController {
 	IOrdonnanceMetier iom;
 	@Autowired
 	IMedicamentMetier imdm;
+	@Autowired
+	IPatientMetier ipm;
 	
 	@GetMapping("/list_ordonnance")
 	public String ListerOrdonnance(Model model) {
@@ -42,15 +45,17 @@ public class OrdonnanceController {
 		model.addAttribute("ordonnance" ,ordonnance);
 		List<Medicament> listM= imdm.listeMedicament();
 		model.addAttribute("listM",listM);
+		List<Patient> listP=ipm.listePatient();
+		model.addAttribute("listP",listP);
 		return "RegOrd";
 	}
 	
 	@PostMapping("/addord")
-	public String saveOrdonnance(@ModelAttribute("ordonnance") Ordonnance ord,
-			@RequestParam(required = false) List<Integer> medicaments) {
-		List<Medicament> listMedicaments =new LinkedList<Medicament>();
+	public String saveOrdonnance(@ModelAttribute("ordonnance") @DateTimeFormat(pattern = "yyyy-MM-dd") Ordonnance ord
+			/*@RequestParam(required = false) List<Integer> medicaments*/) {
+		/*List<Medicament> listMedicaments =new LinkedList<Medicament>();
 		listMedicaments.addAll(imdm.listeMedicamentsById(medicaments));
-		ord.setMedicaments(listMedicaments);
+		ord.setMedicaments(listMedicaments);*/
 		iom.saveOrdonnance(ord);
 		return "redirect:/list_ordonnance";
 	}

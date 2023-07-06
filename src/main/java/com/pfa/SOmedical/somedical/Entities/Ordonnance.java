@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,6 +26,7 @@ import lombok.NoArgsConstructor;
 public class Ordonnance implements Serializable{
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private Integer idOrd;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date DateOrd;
     @ManyToOne
     @JoinColumn(name="ID_MEDECIN")

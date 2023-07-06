@@ -3,6 +3,7 @@ package com.pfa.SOmedical.somedical.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -44,7 +45,7 @@ public class PatientController {
 	}
 	
 	@PostMapping("/addpat")
-	public String savePatient(@ModelAttribute("patient") Patient pat) {
+	public String savePatient(@ModelAttribute("patient") @DateTimeFormat(pattern = "yyyy-MM-dd") Patient pat) {
 		ipm.savePatent(pat);
 		return "redirect:/list_patient";
 	}
